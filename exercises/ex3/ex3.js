@@ -4,7 +4,7 @@ function ajax(url,cb) {
 		foo: 2,
 		baz: [ 6, 8, 10 ],
 		bam: {
-			qux: 12
+			qux: 12,
 		}
 	});
 }
@@ -30,9 +30,25 @@ var defaults = {
 	}
 };
 
-function response() {
+function response({
+	foo = defaults.foo,
+	bar = defaults.bar,
+	baz,
+	bam: {
+		qux = defaults.bam.qax,
+		qam  = defaults.bam.qam
+	}
+} = defaults
+) {
 
 	check({
+		foo,
+		bar,
+		baz,
+		bam: {
+			qux,
+			qam
+		}
 
 	});
 
